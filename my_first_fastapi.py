@@ -21,6 +21,12 @@ def get_user(user_id: int):
     for user in mock_datas:
         if user_id == user["id"]:
             return user
+from typing import Annotated
+from fastapi import Query
+
+@app.get("/items/")
+async def read_items(q: Annotated[str | None, Query(min_length=3)] = None):
+    return {"q": q}
 
 if __name__  == "__main__":
     uvicorn.run(app, port=8888)

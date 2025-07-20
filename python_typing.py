@@ -22,6 +22,7 @@ def example3(var: float | None):
 from typing import Annotated
 
 #使用Annotated 为一个整数类型添加元数据
+#可以用于文档或类型检查工具中
 Age = Annotated[int, "This is an aga value"]
 def set_age(age: Age):
     print(f"Age is {age}")
